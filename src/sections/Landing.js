@@ -7,6 +7,26 @@ import Section from '../components/Section';
 import SocialLink from '../components/SocialLink';
 import MouseIcon from '../components/MouseIcon';
 import Triangle from '../components/Triangle';
+import expectLogoFull from '../components/Logo/PortfolioFull.svg';
+import styled from 'styled-components';
+
+const Logo = ({ url, logo, alt = '' }) => (
+  <Box>
+    <a href={url} rel="noopener noreferrer" target="_blank">
+      <RenponsiveLogo src={logo} alt={alt} />
+    </a>
+  </Box>
+);
+
+const RenponsiveLogo = styled.img`
+  width: 200px;
+  height: 100px;
+
+  @media (min-width: 400px) {
+    width: 100px;
+    height: 50px;
+  }
+`;
 
 const Background = () => (
   <div>
@@ -61,16 +81,13 @@ const LandingPage = () => (
 
         return (
           <Fragment>
-            <Heading
-              textAlign="center"
-              as="h1"
-              color="primary"
-              fontSize={[5, 6, 8]}
-              mb={[3, 4, 5]}
-            >
-              {`${name}`}
-            </Heading>
-
+          <Flex justifyContent="center" alignItems="center">
+        <Logo
+          url="https://www.expect.marketing/"
+          logo={expectLogoFull}
+          alt="Powered by expect"
+        />
+      </Flex>
             <Heading
               as="h2"
               color="primary"
