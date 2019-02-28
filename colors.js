@@ -9,6 +9,13 @@ module.exports = {
   secondary: '#ff4081',
   secondaryLight: '#ff79b0',
   secondaryDark: '#c60055',*/
+
+/*#009ACF
+C19AB7
+9C95DC
+0B7189
+170A1C*/
+
   primary: '#009ACF',
   primaryLight: '#5ecbff',
   primaryDark: '#006c9e',

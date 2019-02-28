@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { Text, Flex, Box } from 'rebass';
 import Fade from 'react-reveal/Fade';
 import PropTypes from 'prop-types';
-import expectLogo from './Logo/Portfolio.svg';
+import expectLogo from './Logo/PortfolioFull.svg';
 
 
 const FooterContainer = styled.footer`

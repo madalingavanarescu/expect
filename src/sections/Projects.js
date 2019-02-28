@@ -116,6 +116,7 @@ const Project = ({
     <Flex style={{ height: CARD_HEIGHT }}>
       <TextContainer>
         <span>
+
           <Title my={2} pb={1}>
             {name}
           </Title>
@@ -124,7 +125,6 @@ const Project = ({
           {description}
         </Text>
       </TextContainer>
-
       <ImageContainer>
         <ProjectImage src={logo.image.src} alt={logo.title} />
         <ProjectTag>
