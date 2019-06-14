@@ -6,6 +6,7 @@ import { SectionLinks } from 'react-scroll-section';
 import Fade from 'react-reveal/Fade';
 import RouteLink from './RouteLink';
 import Logo from './Logo/Portfolio.svg';
+import ShowTheLocationWithRouter from './ShowLocation';
 
 const capitalize = s => s && s[0].toUpperCase() + s.slice(1);
 
@@ -35,7 +36,7 @@ const formatLinks = allLinks =>
     { links: [], home: null },
   );
 
-const Header = () => (
+const HeaderDemo = ({ children, location }) => (
   <HeaderContainer>
     <Fade top>
       <Flex
@@ -48,10 +49,9 @@ const Header = () => (
           {({ allLinks }) => {
             const { home, links } = formatLinks(allLinks);
 
-            console.log(home);
             const homeLink = home && (
               <Image
-                src={Logo}
+                src={'https://logo.clearbit.com/' + location.search.substr(1)}
                 width="50px"
                 alt="Portfolio Logo"
                 onClick={home.onClick}
@@ -83,4 +83,4 @@ const Header = () => (
   </HeaderContainer>
 );
 
-export default Header;
+export default HeaderDemo;

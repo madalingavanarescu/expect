@@ -7,7 +7,6 @@ import Section from '../components/Section';
 import SocialLink from '../components/SocialLink';
 import MouseIcon from '../components/MouseIcon';
 import Triangle from '../components/Triangle';
-import NameForm from '../components/NameForm';
 import expectLogoFull from '../components/Logo/PortfolioFull.svg';
 import styled from 'styled-components';
 
@@ -20,12 +19,7 @@ const Logo = ({ url, logo, alt = '' }) => (
 );
 
 const RenponsiveLogo = styled.img`
-  width: 200px;
-  height: 100px;
-
   @media (min-width: 400px) {
-    width: 100px;
-    height: 50px;
   }
 `;
 
@@ -60,11 +54,11 @@ const Background = () => (
   </div>
 );
 
-const LandingPage = () => (
+const LandingPageDemo = ({ children, location }) => (
   <Section.Container id="home" Background={Background}>
     <StaticQuery
       query={graphql`
-        query SiteTitleQuery {
+        query Site2TitleQuery {
           contentfulAbout {
             name
             roles
@@ -85,12 +79,9 @@ const LandingPage = () => (
             <Flex justifyContent="center" alignItems="center">
               <Logo
                 url="https://www.expect.marketing/"
-                logo={expectLogoFull}
+                logo={'https://logo.clearbit.com/' + location.search.substr(1)}
                 alt="Powered by expect"
               />
-            </Flex>
-            <Flex justifyContent="center" alignItems="center">
-              <NameForm />
             </Flex>
             <Heading
               as="h2"
@@ -100,14 +91,11 @@ const LandingPage = () => (
               textAlign="center"
             >
               <TextLoop>
-                {roles.map(text => (
-                  <Text width={[300, 500]} key={text}>
-                    {text}
-                  </Text>
-                ))}
+                {'Salutare ' + location.search.substr(1) + '!'}
+                {'Ce mai faci?'}
+                {'Vrei un site nou?'}
               </TextLoop>
             </Heading>
-
             <Flex alignItems="center" justifyContent="center" flexWrap="wrap">
               {socialLinks.map(({ id, ...rest }) => (
                 <Box mx={3} fontSize={[5, 6, 6]} key={id}>
@@ -125,4 +113,4 @@ const LandingPage = () => (
   </Section.Container>
 );
 
-export default LandingPage;
+export default LandingPageDemo;
