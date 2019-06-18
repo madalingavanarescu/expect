@@ -47,7 +47,6 @@
     "prop-types": "^15.7.2",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
-    "react-flipcard-2": "^0.3.2",
     "react-fontawesome": "^1.6.1",
     "react-headroom": "^2.2.4",
     "react-helmet": "^5.2.0",

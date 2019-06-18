@@ -10,7 +10,6 @@ import SocialLink from '../components/SocialLink';
 import Triangle from '../components/Triangle';
 import ImageSubtitle from '../components/ImageSubtitle';
 import Hide from '../components/Hide';
-import FlipCard from 'react-flipcard-2';
 
 const Background = () => (
   <div>
