@@ -4,6 +4,7 @@ const Input = styled.input`
   padding: 16px;
   border: 2px solid rgba(221, 221, 221, 0.5);
   border-radius: 2px;
+  font-family: Cabin;
   font-family: inherit;
   font-size: 1rem;
   font-weight: normal;
@@ -28,26 +29,24 @@ const Input = styled.input`
 `;
 
 const Button = styled.input`
-  height: 55px;
-  border: none;
+  height: 52px;
+  border: 2px solid ${props => props.theme.colors.primary};
   border-radius: 3px;
   padding-left: 20px;
   padding-right: 20px;
   margin-left: -2px;
-  background-color: ${props =>
-    props.reverse ? props.theme.colors.white : props.theme.colors.black};
-  color: ${props =>
-    props.reverse ? props.theme.colors.primary : props.theme.colors.white};
+  background-color: ${props => props.theme.colors.primary};
+  color: #ffffff;
   text-align: center;
   line-height: 1.4;
-  font-size: 1rem;
+  font-size: 1.25rem;
   outline: none;
   transition: 0.2s;
   cursor: pointer;
 
   &:hover {
-    background-color: ${props => props.theme.colors.black};
-    color: ${props => props.theme.colors.white};
+    background-color: #ffffff;
+    color: ${props => props.theme.colors.primary};
   }
 
   &:disabled {

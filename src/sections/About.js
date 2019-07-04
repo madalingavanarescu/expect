@@ -7,6 +7,7 @@ import Fade from 'react-reveal/Fade';
 import Section from '../components/Section';
 import Triangle from '../components/Triangle';
 import markdownRenderer from '../components/MarkdownRenderer';
+import fastLoadingImg from '../assets/site_stats.svg';
 
 const Background = () => (
   <div>
@@ -77,11 +78,11 @@ const About = () => (
 
             <Box
               width={[1, 1, 2 / 6]}
-              style={{ maxWidth: '300px', margin: 'auto' }}
+              style={{ maxWidth: '500px', margin: 'auto' }}
             >
               <Fade right>
                 <ProfilePicture
-                  src={profile.image.src}
+                  src={fastLoadingImg}
                   alt={profile.title}
                   mt={[4, 4, 0]}
                   ml={[0, 0, 1]}

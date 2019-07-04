@@ -6,7 +6,7 @@ import { SectionLinks } from 'react-scroll-section';
 import Fade from 'react-reveal/Fade';
 import RouteLink from './RouteLink';
 import Logo from './Logo/Portfolio.svg';
-import ShowTheLocationWithRouter from './ShowLocation';
+import HeaderButton from './HeaderButton.js';
 
 const capitalize = s => s && s[0].toUpperCase() + s.slice(1);
 
@@ -36,7 +36,7 @@ const formatLinks = allLinks =>
     { links: [], home: null },
   );
 
-const HeaderDemo = ({ children, location }) => (
+const Header = () => (
   <HeaderContainer>
     <Fade top>
       <Flex
@@ -49,31 +49,30 @@ const HeaderDemo = ({ children, location }) => (
           {({ allLinks }) => {
             const { home, links } = formatLinks(allLinks);
 
-            const homeLink = home && (
+            const homeLink = (
               <Image
-                src={'https://logo.clearbit.com/' + location.search.substr(1)}
+                src={Logo}
                 width="50px"
                 alt="Portfolio Logo"
-                onClick={home.onClick}
+                onClick={'/'}
                 style={{
                   cursor: 'pointer',
                 }}
               />
             );
-            const navLinks = links.map(({ name, value }) => (
-              <RouteLink
-                key={name}
-                onClick={value.onClick}
-                selected={value.selected}
-              >
-                {name}
+            const navLinks = (
+              <RouteLink key="Home" onClick={'/'} selected={false}>
+                Home
               </RouteLink>
-            ));
+            );
 
             return (
               <Fragment>
                 {homeLink}
-                <Flex mr={[0, 3, 5]}>{navLinks}</Flex>
+                <Flex mr={[0, 3, 5]}>
+                  {navLinks}
+                  <HeaderButton />
+                </Flex>
               </Fragment>
             );
           }}
@@ -83,4 +82,4 @@ const HeaderDemo = ({ children, location }) => (
   </HeaderContainer>
 );
 
-export default HeaderDemo;
+export default Header;

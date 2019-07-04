@@ -6,6 +6,7 @@ import { SectionLinks } from 'react-scroll-section';
 import Fade from 'react-reveal/Fade';
 import RouteLink from './RouteLink';
 import Logo from './Logo/Portfolio.svg';
+import HeaderButton from './HeaderButton.js';
 
 const capitalize = s => s && s[0].toUpperCase() + s.slice(1);
 
@@ -47,6 +48,8 @@ const Header = () => (
         <SectionLinks>
           {({ allLinks }) => {
             const { home, links } = formatLinks(allLinks);
+            console.log(links);
+            console.log(home);
 
             const homeLink = home && (
               <Image
@@ -72,7 +75,10 @@ const Header = () => (
             return (
               <Fragment>
                 {homeLink}
-                <Flex mr={[0, 3, 5]}>{navLinks}</Flex>
+                <Flex mr={[0, 3, 5]}>
+                  {navLinks}
+                  <HeaderButton />
+                </Flex>
               </Fragment>
             );
           }}

@@ -5,7 +5,7 @@ import { StaticQuery, graphql } from 'gatsby';
 import styled from 'styled-components';
 import Fade from 'react-reveal/Fade';
 import Section from '../components/Section';
-import { CardContainer, Card } from '../components/Card';
+import { CardContainer, Card, CardRounded } from '../components/Card';
 import SocialLink from '../components/SocialLink';
 import Triangle from '../components/Triangle';
 import ImageSubtitle from '../components/ImageSubtitle';
@@ -49,18 +49,11 @@ const CARD_HEIGHT = '200px';
 const MEDIA_QUERY_SMALL = '@media (max-width: 400px)';
 
 const Title = styled(Text)`
-  font-size: 18px;
+  font-size: 14px;
   font-weight: 600;
-  color: red;
+  text-transform: uppercase;
   display: table;
   border-bottom: ${props => props.theme.colors.primary} 5px solid;
-`;
-
-const TitleBottom = styled(Text)`
-  font-size: 18px;
-  font-weight: 600;
-  color: green;
-  display: table;
 `;
 
 const TextContainer = styled.div`
@@ -68,7 +61,7 @@ const TextContainer = styled.div`
   flex-direction: column;
   padding: 10px;
   width: 100%;
-  width: calc(100% - ${CARD_HEIGHT});
+  width: ${CARD_HEIGHT};
 
   ${MEDIA_QUERY_SMALL} {
     width: calc(100% - (${CARD_HEIGHT} / 2));
@@ -87,7 +80,7 @@ const ImageContainer = styled.div`
 const ProjectImage = styled(Image)`
   width: ${CARD_HEIGHT};
   height: ${CARD_HEIGHT};
-  padding: 20px;
+  padding: 40px;
   margin-top: 0px;
 
   ${MEDIA_QUERY_SMALL} {
@@ -119,47 +112,20 @@ const Project = ({
   publishedDate,
   logo,
 }) => (
-  <Card p={0}>
+  <CardRounded p={0}>
     <Flex style={{ height: CARD_HEIGHT }}>
       <TextContainer>
         <span>
-          <Title my={2} pb={1}>
+          <Title my={2} pb={1} style={{ marginLeft: '65px' }}>
             {name}
           </Title>
         </span>
-        <TitleBottom width={[1]} style={{ overflow: 'auto' }}>
-          {repositoryUrl}
-        </TitleBottom>
+        <Text width={[1]} style={{ overflow: 'auto', marginLeft: '5px' }}>
+          {description}
+        </Text>
       </TextContainer>
-      <ImageContainer>
-        <ProjectImage src={logo.image.src} alt={logo.title} />
-        <ProjectTag>
-          <Flex
-            style={{
-              float: 'right',
-            }}
-          >
-            <Box mx={1} fontSize={5}>
-              <SocialLink
-                name="Solve my problem"
-                fontAwesomeIcon="location-arrow"
-                url={'http://localhost:8000/contact'}
-              />
-            </Box>
-          </Flex>
-          <ImageSubtitle
-            bg="primaryLight"
-            color="white"
-            y="bottom"
-            x="right"
-            round
-          >
-            {type}
-          </ImageSubtitle>
-        </ProjectTag>
-      </ImageContainer>
     </Flex>
-  </Card>
+  </CardRounded>
 );
 
 Project.propTypes = {
@@ -176,12 +142,37 @@ Project.propTypes = {
   }).isRequired,
 };
 
-const Expertise = () => (
-  <Section.Container id="Expertise" Background={Background}>
-    <Section.Header name="Expertise" icon="💻" Box="notebook" />
+const steps = {
+  projects: [
+    {
+      id: 'step1',
+      name: 'WEEK 1',
+      description: 'step1',
+    },
+    {
+      id: 'step2',
+      name: 'WEEK 2-3',
+      description: 'step2',
+    },
+    {
+      id: 'step3',
+      name: 'WEEK 4',
+      description: 'step2',
+    },
+    {
+      id: 'step4',
+      name: 'WEEK 5',
+      description: 'step2',
+    },
+  ],
+};
+
+const Process = () => (
+  <Section.Container id="Process" Background={Background}>
+    <Section.Header name="Process" icon="💻" Box="notebook" />
     <StaticQuery
       query={graphql`
-        query ProjectsQuery {
+        query ProcesssQuery {
           contentfulAbout {
             projects {
               id
@@ -202,8 +193,8 @@ const Expertise = () => (
         }
       `}
       render={({ contentfulAbout }) => (
-        <CardContainer minWidth="350px">
-          {contentfulAbout.projects.map((p, i) => (
+        <CardContainer minWidth="250px">
+          {steps.projects.map((p, i) => (
             <Fade bottom delay={i * 200}>
               <Project key={p.id} {...p} />
             </Fade>
@@ -214,4 +205,4 @@ const Expertise = () => (
   </Section.Container>
 );
 
-export default Expertise;
+export default Process;
