@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import FontAwesome from 'react-fontawesome';
+import PropTypes from 'prop-types';
 
 const Button = styled.button`
   height: 50px;
@@ -30,19 +31,14 @@ const Button = styled.button`
   }
 `;
 
-class HeaderButton extends React.Component {
-  handleSubmit(event) {
-    window.location.replace('http://localhost:8000/contact');
-    event.preventDefault();
-  }
+const HeaderButton = ({ onClick, selected, children }) => (
+  <Button onClick={onClick}>
+    <FontAwesome name={'laptop'} /> Book a demo call
+  </Button>
+);
 
-  render() {
-    return (
-      <Button onClick={this.handleSubmit}>
-        <FontAwesome name={'laptop'} /> Book a demo call
-      </Button>
-    );
-  }
-}
+HeaderButton.propTypes = {
+  onClick: PropTypes.func,
+};
 
 export default HeaderButton;

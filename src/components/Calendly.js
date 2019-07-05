@@ -11,7 +11,7 @@ class Calendly extends React.Component {
     head.appendChild(script);
 
     console.log('da');
-    setTimeout(function() {
+    /*setTimeout(function() {
       console.log(
         document.getElementsByClassName(
           'is-opaque history no-touchevents localstorage',
@@ -20,7 +20,7 @@ class Calendly extends React.Component {
       document.getElementsByClassName(
         'is-opaque history no-touchevents localstorage',
       )[0].style.backgroundColor = 'transparent';
-    }, 10000);
+    }, 10000);*/
   }
 
   componentWillUnmount() {

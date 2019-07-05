@@ -12,24 +12,31 @@ import ImageSubtitle from '../components/ImageSubtitle';
 const Background = () => (
   <div>
     <Triangle
-      color="backgroundDark"
-      height={['15vh', '10vh']}
+      color="secondaryLight"
+      height={['80vh', '80vh']}
       width={['100vw', '100vw']}
       invertX
     />
 
     <Triangle
-      color="secondary"
-      height={['50vh', '40vh']}
-      width={['70vw', '40vw']}
-      invertY
+      color="background"
+      height={['50vh', '20vh']}
+      width={['50vw', '50vw']}
+      invertX
     />
 
     <Triangle
       color="primaryDark"
-      height={['40vh', '15vh']}
-      width={['100vw', '100vw']}
+      height={['25vh', '40vh']}
+      width={['75vw', '60vw']}
       invertX
+      invertY
+    />
+
+    <Triangle
+      color="backgroundDark"
+      height={['25vh', '20vh']}
+      width={['100vw', '100vw']}
       invertY
     />
   </div>
@@ -109,7 +116,11 @@ const isMediumUserDefine = true;
 
 const Projectos = () => (
   <Section.Container id="Expertise" Background={Background}>
-    <Section.Header name="Expertise" icon="💻" Box="notebook" />
+    <Section.Header
+      name="How your website should look like"
+      icon="💻"
+      Box="notebook"
+    />
     <StaticQuery
       query={graphql`
         query ProjectosQuery {

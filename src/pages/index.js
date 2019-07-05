@@ -8,6 +8,8 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Projectos from '../sections/Projectos';
 
+import Contact from '../sections/Contact';
+
 const IndexPage = () => (
   <Layout>
     <Header />
@@ -15,6 +17,7 @@ const IndexPage = () => (
     <About />
     <Projectos />
     <Process />
+    <Contact />
     <Footer />
   </Layout>
 );

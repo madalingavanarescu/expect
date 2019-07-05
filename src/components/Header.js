@@ -62,6 +62,7 @@ const Header = () => (
                 }}
               />
             );
+
             const navLinks = links.map(({ name, value }) => (
               <RouteLink
                 key={name}
@@ -72,12 +73,19 @@ const Header = () => (
               </RouteLink>
             ));
 
+            var removed2 = links.splice(0, 4);
+
+            const ButtonCall = links.map(({ name, value }) => (
+              <HeaderButton onClick={value.onClick} />
+            ));
+
             return (
               <Fragment>
                 {homeLink}
                 <Flex mr={[0, 3, 5]}>
                   {navLinks}
-                  <HeaderButton />
+
+                  {ButtonCall}
                 </Flex>
               </Fragment>
             );

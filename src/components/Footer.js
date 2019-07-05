@@ -5,7 +5,6 @@ import Fade from 'react-reveal/Fade';
 import PropTypes from 'prop-types';
 import expectLogo from './Logo/PortfolioFull.svg';
 
-
 const FooterContainer = styled.footer`
   padding: 1em;
   background: ${props => props.theme.colors.primaryDark};
@@ -15,6 +14,10 @@ const FooterContainer = styled.footer`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  span a {
+    display: none;
+  }
 `;
 
 const RenponsiveLogo = styled.img`
@@ -56,6 +59,7 @@ const Footer = () => (
         >
           Powered By
         </Text>
+        <a href="https://clearbit.com">Logos provided by Clearbit</a>
       </span>
       <Flex justifyContent="center" alignItems="center">
         <Logo
